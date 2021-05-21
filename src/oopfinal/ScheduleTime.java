@@ -2,11 +2,11 @@ package oopfinal;
 
 import java.util.List;
 
-public class scheduleTime {
+public class ScheduleTime {
     private int availTime;
     List<Doctors> doctors;
 
-    public scheduleTime(int time, List<Doctors> doc) {
+    public ScheduleTime(int time, List<Doctors> doc) {
         availTime = time;
         doctors = doc;
     }
