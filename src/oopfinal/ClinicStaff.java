@@ -16,6 +16,46 @@ public class ClinicStaff {
         StaffPassword = pass;
         StaffPhoneNumber = phone;
     }
+    //getters setters
 
+    public void setStaffName(String sName) {
+        StaffName = sName;
+    }
+
+    public void setStaffEmail(String sEmail) {
+        StaffEmail = sEmail;
+    }
+
+    public void setStaffPassword(String sPassword){
+        StaffPassword = sPassword;
+    }
+
+    public void setStaffID(int id) {
+        StaffID = id;
+    }
+
+    public void setStaffPhoneNumber(int phone){
+        StaffPhoneNumber = phone;
+    }
+
+    public String getStaffName(){
+        return StaffName;
+    }
+
+    public String getStaffEmail(){
+        return StaffEmail;
+    }
+
+    public String getStaffPassword(){
+        return StaffPassword;
+    }
+
+    public int getStaffID() {
+        return StaffID;
+    }
+
+    public int getStaffPhoneNumber() {
+        return StaffPhoneNumber;
+    }
 
 }
