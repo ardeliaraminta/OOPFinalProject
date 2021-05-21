@@ -10,6 +10,7 @@ public class Whale extends AquaticPet{
 
     // construct Whale
     public Whale(String petName, int petAge, String pOwner, String pSpec ){
+        // invoke from parents class
         super.petOwner = pOwner;
         super.petSpecies = pSpec;
         this.petName = petName;
