@@ -91,7 +91,7 @@ class MainStaff {
             System.out.println("Enter your phone number: ");
             st.setStaffPhoneNumber(Integer.parseInt(scan.nextLine()));
 
-
+            // write in the txt
             staffbw.write(st.getStaffID() + "\t" + st.getStaffName() + "\t" + st.getStaffEmail() + "\t" + st.getStaffPassword() + "\t" + st.getStaffPhoneNumber());
             logbw.write(st.getStaffID() + "\t" + st.getStaffPassword());
             staffbw.close();
@@ -128,4 +128,46 @@ class MainStaff {
 
 
     }
+
+    private static void viewProfile() {
+        try {
+            Scanner myReader = new Scanner(new File("staff.txt"));
+
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                String[] text = data.split("\t");
+
+                if(data.contains(Main.getStaffID())){
+                    String pwd = "";
+                    for(int i=0;i<text[1].length();i++){pwd += "*";}
+
+                    ClinicStaff staff = new ClinicStaff(Integer.parseInt(text[0]),text[1],text[2],text[3],Integer.parseInt(text[4]));
+
+                    System.out.println("\n\n\tProfile Data\n");
+                    System.out.println("ID\t: "+staff.getStaffID());
+                    System.out.println("Name\t: "+staff.getStaffName());
+                    System.out.println("Email\t\t: "+staff.getStaffEmail());
+                    System.out.println("Phone Number\t: 0"+staff.getStaffPhoneNumber());
+                    System.out.println("Password\t: "+pwd);
+                }
+            }
+            System.out.println("\n\n");
+            myReader.close();
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+
+
+    private static void viewAppointment() {
+    }
+
+
+    private static void editAppointment() {
+
+
+    }
+
 }
