@@ -67,13 +67,13 @@ class MainStaff {
             Scanner scan = new Scanner(System.in);
             File staff = new File("staff.txt");
             File custlog = new File("staffLog.txt");
-            BufferedWriter staffbw = new BufferedWriter(new FileWriter("staff.txt", true));
+            BufferedWriter staffBW = new BufferedWriter(new FileWriter("staff.txt", true));
             BufferedWriter logbw = new BufferedWriter(new FileWriter("staffLog.txt", true));
             ClinicStaff st = new ClinicStaff();
 
             if (staff.createNewFile()) {
             } else {
-                staffbw.newLine();
+                staffBW.newLine();
             }
             if (custlog.createNewFile()) {
             } else {
@@ -92,9 +92,9 @@ class MainStaff {
             st.setStaffPhoneNumber(Integer.parseInt(scan.nextLine()));
 
             // write in the txt
-            staffbw.write(st.getStaffID() + "\t" + st.getStaffName() + "\t" + st.getStaffEmail() + "\t" + st.getStaffPassword() + "\t" + st.getStaffPhoneNumber());
+            staffBW.write(st.getStaffID() + "\t" + st.getStaffName() + "\t" + st.getStaffEmail() + "\t" + st.getStaffPassword() + "\t" + st.getStaffPhoneNumber());
             logbw.write(st.getStaffID() + "\t" + st.getStaffPassword());
-            staffbw.close();
+            staffBW.close();
             logbw.close();
             System.out.println("\nSuccessfully wrote to the file.\n");
         } catch (IOException e) {

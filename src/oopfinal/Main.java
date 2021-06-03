@@ -10,16 +10,14 @@ public class Main {
 
     public static void setStaffID(String us){
         user = us;
-
     }
-
     public static String getStaffID() {
         return user;
     }
 
-    public static void setUsername(String us) {
-        user = us;
 
+    public static void setUserName(String us) {
+        user = us;
     }
 
     public static String getUsername() {
@@ -45,6 +43,7 @@ public class Main {
             System.out.println("Select your choice:           ");
             String choice = ent.next();
 
+            // direct them to customer or staff main
             if (choice.toUpperCase().charAt(0) == 'A'){
                 MainStaff.staff();
             } else if (choice.toUpperCase().charAt(0) == 'B'){
