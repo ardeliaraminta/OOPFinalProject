@@ -55,5 +55,40 @@ public class Whale extends AquaticPet{
     public String getPetSpecies() {
         return petSpecies;
     }
+
+    @Override
+    public void setBehaviour() {
+        this.behaviour = behaviour;
+    }
+
+    @Override
+    public void setSickness() {
+        this.sickness = sickness;
+
+    }
+
+
+    @Override
+    public void setBehaviour(String behaviour) {
+        this.behaviour = behaviour;
+
+    }
+
+    @Override
+    public String getBehaviour() {
+        return behaviour;
+    }
+
+    @Override
+    public void setSickness(String sickness) {
+        this.sickness = sickness;
+
+    }
+
+    @Override
+    public String getSickness() {
+        return sickness;
+    }
 }
+
 

@@ -1,6 +1,8 @@
 package oopfinal;
 
-public abstract class AquaticPet {
+public abstract class AquaticPet implements PetDetails {
+    protected String sickness;
+    protected String behaviour;
     String petOwner;
     String petSpecies;
 
@@ -24,4 +26,8 @@ public abstract class AquaticPet {
     public abstract String getPetOwner();
 
     public abstract String getPetSpecies();
+
+    public abstract void setBehaviour();
+
+    public abstract void setSickness();
 }
