@@ -140,7 +140,8 @@ public class MainCostumer {
             case 2 -> viewAppointment(); // details of appointment
             case 3 -> addAppointment();
             case 4 -> viewProfile(); // view costumer and pet profile
-            case 5 -> addAquaticPet(); // register the pet
+            case 5 -> addAquaticPet();
+            // register the pet
             default -> {
                 System.out.println(" Invalid choice ");
                 MainStaff.staff();
@@ -149,7 +150,7 @@ public class MainCostumer {
 
     }
 
-    private static void doctorSchedule() {
+    private static void doctorSchedule() throws IOException {
         Doctors doctor1 = new Doctors("Dr.Killjoy");
         Doctors doctor2 = new Doctors("Dr.Sage");
         Doctors doctors3 = new Doctors("Dr.Reyna");
@@ -184,6 +185,8 @@ public class MainCostumer {
 
             System.out.println(time.get(i).getScheduleTime()+"\t |Close \t |"+line);
         }
+
+        customerMenu();
     }
 
     private static void viewAppointment() {

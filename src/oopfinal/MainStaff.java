@@ -26,16 +26,17 @@ class MainStaff {
     }
 
     private static void staffLogin() {
-        String password, line;
+        String password, line, username;
         String id;
 
         System.out.println("\t------------[ LOGIN ]-------------");
         System.out.println("\t__________________________________");
         System.out.println();
-        System.out.println("\tUsername: ");
+        System.out.println("\tID: ");
         id = input.next();
         System.out.println("\tPassword: ");
         password = input.next();
+
 
         try {
             BufferedReader br = new BufferedReader(new FileReader("staffLog.txt"));
