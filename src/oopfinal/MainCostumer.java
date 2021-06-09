@@ -80,7 +80,7 @@ public class MainCostumer {
             // written in the text file
             Scanner sc = new Scanner(System.in);
             File cust = new File("customer.txt");
-            File custLog = new File("customerLog.txt");
+            File custLog = new File("custLog.txt");
             BufferedWriter custBW = new BufferedWriter(new FileWriter("customer.txt", true));
             BufferedWriter logBW = new BufferedWriter(new FileWriter("custLog.txt", true));
             ClinicCustomer customer = new ClinicCustomer();
@@ -172,7 +172,7 @@ public class MainCostumer {
         System.out.println("\t\t Schedule Timetable");
         System.out.println("\t\t __________________");
         System.out.println();
-        System.out.println("Week:\\t |Monday\t |Tuesday\t |Wednesday\t |Thursday\t |Friday\t |Saturday\t |Sunday");
+        System.out.println("Week:\t |Monday\t |Tuesday\t |Wednesday\t |Thursday\t |Friday\t |Saturday\t |Sunday");
 
         for(int i=0;i<time.size();i++){
             String line = "";
@@ -213,6 +213,7 @@ public class MainCostumer {
             System.out.println();
             System.out.print("Enter Choice           : ");
             int opt = scan.nextInt();
+            scan.nextLine();
 
             switch (opt) {
                 case 1   :  Whale whale = new Whale();
@@ -226,9 +227,9 @@ public class MainCostumer {
                     System.out.println("Pet Behaviour; Aggressive/ Soft ");
                     whale.setBehaviour(scan.nextLine());
                     System.out.println("Any particular allergies: ");
-                    whale.setSickness(scan.nextLine());
+                    whale.setAllergies(scan.nextLine());
 
-                    petBW.write(whale.getPetName()+"\t"+whale.getPetAge()+"\t"+whale.getPetOwner()+"\t"+whale.getPetSpecies()+"\t"+whale.getBehaviour()+"\t" + whale.getSickness());
+                    petBW.write(whale.getPetName()+"\t"+whale.getPetAge()+"\t"+whale.getPetOwner()+"\t"+whale.getPetSpecies()+"\t"+whale.getBehaviour()+"\t" + whale.getAllergies());
                     break;
 
                 case 2   :  Shark shark = new Shark();
@@ -242,12 +243,12 @@ public class MainCostumer {
                     System.out.println("Pet Behaviour; Aggressive/ Soft ");
                     shark.setBehaviour(scan.nextLine());
                     System.out.println("Any particular allergies: ");
-                    shark.setSickness(scan.nextLine());
+                    shark.setAllergies(scan.nextLine());
 
-                    petBW.write(shark.getPetName()+"\t"+shark.getPetAge()+"\t"+shark.getPetOwner()+"\t"+shark.getPetSpecies()+"\t"+shark.getBehaviour()+"\t" + shark.getSickness());
+                    petBW.write(shark.getPetName()+"\t"+shark.getPetAge()+"\t"+shark.getPetOwner()+"\t"+shark.getPetSpecies()+"\t"+shark.getBehaviour()+"\t" + shark.getAllergies());
                     break;
-
                     //case 3 for other species -> Others
+                case 3   :
 
                 default  :  System.out.println("Invalid");
                     MainStaff.staff();

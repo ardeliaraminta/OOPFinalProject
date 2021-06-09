@@ -1,6 +1,6 @@
 package oopfinal;
 
-public class Whale extends AquaticPet{
+public class Whale extends AquaticPet implements PetDetails{
     String petName;
     int petAge;
 
@@ -56,39 +56,27 @@ public class Whale extends AquaticPet{
         return petSpecies;
     }
 
-    @Override
-    public void setBehaviour() {
-        this.behaviour = behaviour;
-    }
-
-    @Override
-    public void setSickness() {
-        this.sickness = sickness;
-
-    }
-
 
     @Override
     public void setBehaviour(String behaviour) {
-        this.behaviour = behaviour;
 
     }
 
     @Override
     public String getBehaviour() {
-        return behaviour;
+        return null;
     }
 
     @Override
-    public void setSickness(String sickness) {
-        this.sickness = sickness;
+    public void setAllergies(String allergies) {
 
     }
 
     @Override
-    public String getSickness() {
-        return sickness;
+    public String getAllergies() {
+        return null;
     }
+
 }
 
 

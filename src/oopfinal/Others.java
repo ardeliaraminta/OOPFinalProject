@@ -1,15 +1,16 @@
 package oopfinal;
 
-public class Shark extends AquaticPet implements PetDetails{
+public class Others extends AquaticPet implements PetDetails  {
+
     String petName;
     int petAge;
 
-    public Shark(){
+    public Others(){
 
     };
 
-    // construct Shark
-    public Shark(String petName, int petAge, String pOwner, String pSpec ){
+    // construct Others
+    public Others(String petName, int petAge, String pOwner, String pSpec ){
         super.petOwner = pOwner;
         super.petSpecies = pSpec;
         this.petName = petName;
@@ -58,7 +59,6 @@ public class Shark extends AquaticPet implements PetDetails{
     @Override
     public void setBehaviour(String behaviour) {
         this.behaviour = behaviour;
-
     }
 
     @Override

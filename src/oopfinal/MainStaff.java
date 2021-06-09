@@ -25,7 +25,7 @@ class MainStaff {
         }
     }
 
-    private static void staffRegister() {
+    private static void staffLogin() {
         String password, line;
         String id;
 
@@ -62,7 +62,7 @@ class MainStaff {
 
     }
 
-    private static void staffLogin() {
+    private static void staffRegister() {
         try {
             Scanner scan = new Scanner(System.in);
             File staff = new File("staff.txt");
