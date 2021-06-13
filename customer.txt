@@ -1,3 +1,4 @@
 
 Ardelia	NewYork	Ardelia Shaula	ardelia@yahoo.com	8123	Jakarta	
-Ardelia	NewYork	Ardelia Shaula 	aramintaardelia@yahoo.com	81230	South Jakarta	
+Ardelia	NewYork	Ardelia Shaula 	aramintaardelia@yahoo.com	81230	South JakartaA
+Olivia	Sour	Olivia Rodrigo	oliviarodrigo@gmail.com	12344	America	

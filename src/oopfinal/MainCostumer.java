@@ -1,5 +1,6 @@
 package oopfinal;
 
+import javax.print.attribute.standard.MediaSize;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -153,15 +154,15 @@ public class MainCostumer {
     private static void doctorSchedule() throws IOException {
         Doctors doctor1 = new Doctors("Dr.Killjoy");
         Doctors doctor2 = new Doctors("Dr.Sage");
-        Doctors doctors3 = new Doctors("Dr.Reyna");
+        Doctors doctor3 = new Doctors("Dr.Reyna");
 
         // make an arraylist of doctors available at certain time for checkup schedule
-        List<Doctors> doctor1000 = new ArrayList<Doctors>(Arrays.asList(doctor2,doctor2, doctor2,doctor1,doctor1, doctor2));
+        List<Doctors> doctor1000 = new ArrayList<Doctors>(Arrays.asList(doctor3,doctor2, doctor2,doctor1,doctor1, doctor3));
         List<Doctors> doctor1100 = new ArrayList<Doctors>(Arrays.asList(doctor1,doctor1, doctor2,doctor2,doctor1, doctor1));
-        List<Doctors> doctor1300 = new ArrayList<Doctors>(Arrays.asList(doctor2,doctor2, doctor2,doctor1,doctor1, doctor2));
-        List<Doctors> doctor1600 = new ArrayList<Doctors>(Arrays.asList(doctor2,doctor2, doctor2,doctor1,doctor1, doctor2));
-        List<Doctors> doctor1800 = new ArrayList<Doctors>(Arrays.asList(doctor2,doctor2, doctor2,doctor1,doctor1, doctor2));
-        List<Doctors> doctor2000 = new ArrayList<Doctors>(Arrays.asList(doctor2,doctor2, doctor2,doctor1,doctor1, doctor2));
+        List<Doctors> doctor1300 = new ArrayList<Doctors>(Arrays.asList(doctor3,doctor2, doctor2,doctor1,doctor1, doctor2));
+        List<Doctors> doctor1600 = new ArrayList<Doctors>(Arrays.asList(doctor2,doctor2, doctor2,doctor3,doctor1, doctor2));
+        List<Doctors> doctor1800 = new ArrayList<Doctors>(Arrays.asList(doctor2,doctor3, doctor2,doctor1,doctor1, doctor2));
+        List<Doctors> doctor2000 = new ArrayList<Doctors>(Arrays.asList(doctor3,doctor2, doctor2,doctor3,doctor1, doctor2));
         List<Doctors> doctor2200 = new ArrayList<Doctors>(Arrays.asList(doctor2,doctor2, doctor2,doctor1,doctor1, doctor2));
 
 
@@ -189,35 +190,107 @@ public class MainCostumer {
         customerMenu();
     }
 
-    private static void viewAppointment() {
+    private static void viewAppointment() throws IOException {
+        try {
+            Scanner reader = new Scanner(new File("customer.txt"));
 
+            // if there is a data split the words by tabs
+            while (reader.hasNextLine()) {
+                String data = reader.nextLine();
+                String[] text = data.split("\t");
+
+                // if the data is there get the username
+                if (data.contains(Main.getUsername())) {
+                    String password = "";
+                    // loop for sets of data available and make the password invisible ***
+                    for (int i = 0; i < text[1].length(); i++) {
+                        password += "*";
+                    }
+
+                    String line2, petName = "invalid";
+                    BufferedReader br = new BufferedReader(new FileReader("pet.txt"));
+                    AquaticPet Apet = null;
+
+                    while ((line2 = br.readLine()) != null) {
+                        if (line2.contains(Main.getUsername())) {
+                            String[] text2 = line2.split("\t");
+
+                            if (text2[3].equals("Shark")) {
+                                Apet = new Shark(text2[0], Integer.parseInt(text2[1]), text2[2], text2[3]);
+                            } else if (text2[3].equals("Whale")) {
+                                Apet = new Whale(text2[0], Integer.parseInt(text2[1]), text2[2], text2[3]);
+                            } else if (text2[3].equals("Other")) {
+                                Apet = new Others(text2[0], Integer.parseInt(text2[1]), text2[2], text2[3]);
+                            }
+                        }
+                    }
+
+                    br.close();
+
+                    ClinicCustomer customer = new ClinicCustomer(text[0],text[1],text[2],text[4],Integer.parseInt(text[4]),text[5],Apet);
+
+                    System.out.println("\n\n\tProfile Data\n");
+                    System.out.println("User Name\t: "+customer.getUserName());
+                    System.out.println("Password\t: "+password);
+                    System.out.println("Full Name\t: "+customer.getFullName());
+                    System.out.println("Email\t\t: "+customer.getEmail());
+                    System.out.println("Phone Number\t: 0"+customer.getPhoneNumber());
+                    System.out.println("Address\t\t: "+customer.getHomeAddress());
+
+                    if(Apet.getPetSpecies().equals("Shark")){
+                        System.out.println("Pet Name\t\t: "+((Shark)Apet).getPetName()+"\n");
+                    }
+                    else if(Apet.getPetSpecies().equals("Whale")){
+                        System.out.println("Pet Name\t\t: "+((Whale)Apet).getPetName()+"\n");
+                    }
+                    else if (Apet.getPetSpecies().equals("Others")){
+                        System.out.println("Pet Name\t\t: "+((Others)Apet).getPetName()+"\n");
+                    }
+                }
+            }
+            System.out.println("\n\n");
+            reader.close();
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 
+
     private static void addAppointment() {
+
     }
 
     private static void viewProfile() {
+
+
     }
 
     private static void addAquaticPet() {
         Scanner scan = new Scanner(System.in);
 
         try {
+            // write in text file
             File pet = new File("pet.txt");
             BufferedWriter petBW = new BufferedWriter(new FileWriter("pet.txt",true));
 
+            // if there is no text file create new, if there is existing file write a new line
             if(pet.createNewFile()){}else{petBW.newLine();}
 
+            // choose pet species
             System.out.println("Please choose yours pet species: ");
             System.out.println("1) Whale");
             System.out.println("2) Shark");
             System.out.println("3) Others");
 
+            // choose 1/2/3
             System.out.println();
             System.out.print("Enter Choice           : ");
             int opt = scan.nextInt();
             scan.nextLine();
 
+            // switch statement for the selected pet species
             switch (opt) {
                 case 1   :  Whale whale = new Whale();
 
@@ -226,12 +299,14 @@ public class MainCostumer {
                     System.out.println("Enter your Pet age: ");
                     whale.setPetAge(Integer.parseInt(scan.nextLine()));
                     whale.setPetOwner(Main.getUsername());
-                    whale.setPetSpecies("Blue Whale");
+                    System.out.println("Enter your Pet species: ");
+                    whale.setPetSpecies(scan.nextLine());
                     System.out.println("Pet Behaviour; Aggressive/ Soft ");
                     whale.setBehaviour(scan.nextLine());
                     System.out.println("Any particular allergies: ");
                     whale.setAllergies(scan.nextLine());
 
+                    //write in text file the details
                     petBW.write(whale.getPetName()+"\t"+whale.getPetAge()+"\t"+whale.getPetOwner()+"\t"+whale.getPetSpecies()+"\t"+whale.getBehaviour()+"\t" + whale.getAllergies());
                     break;
 
@@ -242,7 +317,8 @@ public class MainCostumer {
                     System.out.println("Enter your Pet age: ");
                     shark.setPetAge(Integer.parseInt(scan.nextLine()));
                     shark.setPetOwner(Main.getUsername());
-                    shark.setPetSpecies("Blue Whale");
+                    System.out.println("Enter your Pet species: ");
+                    shark.setPetSpecies(scan.nextLine());
                     System.out.println("Pet Behaviour; Aggressive/ Soft ");
                     shark.setBehaviour(scan.nextLine());
                     System.out.println("Any particular allergies: ");
@@ -251,7 +327,23 @@ public class MainCostumer {
                     petBW.write(shark.getPetName()+"\t"+shark.getPetAge()+"\t"+shark.getPetOwner()+"\t"+shark.getPetSpecies()+"\t"+shark.getBehaviour()+"\t" + shark.getAllergies());
                     break;
                     //case 3 for other species -> Others
-                case 3   :
+                case 3   : Others other = new Others();
+
+                    System.out.println("Enter your Pet name: ");
+                    other.setPetName(scan.nextLine());
+                    System.out.println("Enter your Pet age: ");
+                    other.setPetAge(Integer.parseInt(scan.nextLine()));
+                    other.setPetOwner(Main.getUsername());
+                    System.out.println("Enter your Pet species: ");
+                    other.setPetSpecies(scan.nextLine());
+                    System.out.println("Pet Behaviour; Aggressive/ Soft ");
+                    other.setBehaviour(scan.nextLine());
+                    System.out.println("Any particular allergies: ");
+                    other.setAllergies(scan.nextLine());
+
+                    petBW.write(other.getPetName()+"\t"+other.getPetAge()+"\t"+other.getPetOwner()+"\t"+other.getPetSpecies()+"\t"+other.getBehaviour()+"\t" + other.getAllergies());
+                    break;
+
 
                 default  :  System.out.println("Invalid");
                     MainStaff.staff();

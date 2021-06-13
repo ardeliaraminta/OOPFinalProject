@@ -11,7 +11,6 @@ public abstract class AquaticPet {
 
     }
 
-    //overloading
     public AquaticPet(String petOwner, String petSpecies) {
         this.petOwner = petOwner;
         this.petSpecies = petSpecies;

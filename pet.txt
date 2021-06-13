@@ -1,3 +1,4 @@
 
 Joy	2	Ardelia	Blue Whale	Soft	None
-Kitty	8	Ardelia	Blue Whale	Aggresive 	red meat 
+Kitty	8	Ardelia	Blue Whale	Aggresive 	red meat
+Nemo	10	Ardelia	Sea Horse	Soft	onions

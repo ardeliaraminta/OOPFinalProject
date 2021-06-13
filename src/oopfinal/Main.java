@@ -33,8 +33,8 @@ public class Main {
             Scanner ent = new Scanner(System.in);
 
             System.out.println("--------------------------------------------------------------");
-            System.out.println("\n\tWelcome To Something Fishy: Ocean Animal Pet Center System");
-            System.out.println("-------------------------------------");
+            System.out.println("\n\t[Welcome To Something Fishy: Ocean Animal Pet Center System]");
+            System.out.println("---------------------------------------------------------------");
             System.out.println("A) Staff");
             System.out.println("B) Customer");
             System.out.println("---------------------------------------------------------------");

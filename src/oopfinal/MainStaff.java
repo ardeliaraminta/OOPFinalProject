@@ -42,16 +42,19 @@ class MainStaff {
             BufferedReader br = new BufferedReader(new FileReader("staffLog.txt"));
             boolean authenticated = false;
 
+            // when the text file is not empty split text by tab
             while ((line = br.readLine()) != null) {
                 String[] text = line.split("\t");
 
+                // if the first index = id entered or registered and second index = password
+                // proceed open staff menu
                 if (text[0].equals(id) && text[1].equals(password)) {
                     authenticated = true;
                     Main.setStaffID(id);
                     staffMenu();
                 }
             }
-
+            //if either doesn't match
             if (!authenticated) {
                 System.out.println("Wrong Password");
             }
@@ -117,7 +120,7 @@ class MainStaff {
         int options = input.nextInt();
 
         switch (options) {
-            case 1   :  viewProfile(); // to see the user profile
+            case 1   :  viewStaffProfile(); // to see the user profile
                 break;
             case 2   :  viewAppointment(); // view appointment
                 break;
@@ -130,7 +133,7 @@ class MainStaff {
 
     }
 
-    private static void viewProfile() {
+    private static void viewStaffProfile() {
         try {
             Scanner myReader = new Scanner(new File("staff.txt"));
 
