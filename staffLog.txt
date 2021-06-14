@@ -1,5 +1,3 @@
 
-11	NewYork
-11	NewYork
-
-11	dksa
+1109	NewYork
+1	thatway

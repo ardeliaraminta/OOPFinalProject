@@ -8,17 +8,6 @@ class ClinicCustomer {
     public ClinicCustomer(){
     };
 
-    //constructor
-    public ClinicCustomer(String usr, String pwd, String fName, String mail, int phone, String add, AquaticPet pet) {
-        userName = usr;
-        password = pwd;
-        fullName = fName;
-        email = mail;
-        phoneNumber = phone;
-        homeAddress = add;
-        pets = pet;
-
-    }
     // assign values to details of Customer
     public void setUserName(String usr){
         userName = usr;

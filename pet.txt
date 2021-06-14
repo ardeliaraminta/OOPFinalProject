@@ -1,4 +1,4 @@
 
-Joy	2	Ardelia	Blue Whale	Soft	None
-Kitty	8	Ardelia	Blue Whale	Aggresive 	red meat
-Nemo	10	Ardelia	Sea Horse	Soft	onions
+Lola	3	Ardelia	Tiger Shark	Soft	Salmon
+Cherry	3	Billie09	BlueWhale	null	null
+Zelda	6	Billie09	Tiger	Soft	Meat

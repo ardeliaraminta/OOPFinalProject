@@ -1,13 +1,14 @@
 package oopfinal;
 
-public class AppointmentDetails {
+public class AppointmentDetails implements PetDetails {
 
     private int id;
     private String petOwner;
     private String petSpecies;
     private String reasonOfVisit;
     private String dateTime;
-
+    private String behaviour;
+    private String allergies;
 
 
     public AppointmentDetails(){}
@@ -59,6 +60,27 @@ public class AppointmentDetails {
 
     public String getDateTime(){
         return dateTime;
+    }
+
+    @Override
+    public void setBehaviour(String behaviour) {
+        this.behaviour = behaviour;
+    }
+
+    @Override
+    public String getBehaviour() {
+        return behaviour;
+    }
+
+    @Override
+    public void setAllergies(String allergies) {
+        this.allergies = allergies;
+
+    }
+
+    @Override
+    public String getAllergies() {
+        return allergies;
     }
 }
 

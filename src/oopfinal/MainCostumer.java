@@ -12,9 +12,10 @@ public class MainCostumer {
     // redirected to login or register page
     public static void customer() {
         Scanner in = new Scanner(System.in);
+        System.out.println("-------------------------------------");
         System.out.println("\n\tCustomer");
         System.out.println("-------------------------------------");
-        System.out.println("1)Login");
+        System.out.println("1) Login");
         System.out.println("2) Register");
 
         System.out.println();
@@ -46,11 +47,12 @@ public class MainCostumer {
         password = scan.next();
 
         try {
+            //read the custlof.txt file
             BufferedReader br = new BufferedReader(new FileReader("custLog.txt"));
             boolean validation = false;
 
             // while loop, if the line is not empty (txt)  and contains username and password
-            // proceed to the customer menu
+            // it checks with the validation, and proceed to the customer menu
 
             while ((line = br.readLine()) != null) {
                 if (line.contains(username) && line.contains(password)) {
@@ -86,6 +88,7 @@ public class MainCostumer {
             BufferedWriter logBW = new BufferedWriter(new FileWriter("custLog.txt", true));
             ClinicCustomer customer = new ClinicCustomer();
 
+            // if there is txt file already write on new line
             if (cust.createNewFile()) {
             } else {
                 custBW.newLine();
@@ -97,24 +100,30 @@ public class MainCostumer {
             // enter data of the customer
             System.out.println("Enter your user name: ");
             customer.setUserName(sc.nextLine());
+            // password
             System.out.println("Password: ");
             customer.setPassword(sc.nextLine());
+            // fullname
             System.out.println("Full name:");
             customer.setFullName(sc.nextLine());
+            // email
             System.out.println("Email:");
             customer.setEmail(sc.nextLine());
             System.out.println("Enter your phone number: ");
+            // phone number
             customer.setPhoneNumber(Integer.parseInt(sc.nextLine()));
+            //address
             System.out.println("Enter your address: ");
             customer.setHomeAddress(sc.nextLine());
 
+            // write in text file the above entries
             custBW.write(customer.getUserName() + "\t" + customer.getPassword() + "\t" + customer.getFullName() + "\t" + customer.getEmail() + "\t" + customer.getPhoneNumber() + "\t" + customer.getHomeAddress() + "\t");
             logBW.write(customer.getUserName() + "\t" + customer.getPassword());
 
             custBW.close();
             logBW.close();
 
-            System.out.println("\n Data written in the file.\n");
+            System.out.println("\n Done \n");
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
@@ -138,10 +147,10 @@ public class MainCostumer {
 
         switch (options) {
             case 1 -> doctorSchedule(); // see available doctors
-            case 2 -> viewAppointment(); // details of appointment
-            case 3 -> addAppointment();
-            case 4 -> viewProfile(); // view costumer and pet profile
-            case 5 -> addAquaticPet();
+            case 2 -> viewDetailsAppointment(); // details of appointment
+            case 3 -> addAppointment(); // add new appointment
+            case 4 -> viewCustomerProfile(); // view costumer and pet profile
+            case 5 -> addAquaticPet(); // register new customer pet
             // register the pet
             default -> {
                 System.out.println(" Invalid choice ");
@@ -152,6 +161,8 @@ public class MainCostumer {
     }
 
     private static void doctorSchedule() throws IOException {
+
+        // create an instance of the doctors
         Doctors doctor1 = new Doctors("Dr.Killjoy");
         Doctors doctor2 = new Doctors("Dr.Sage");
         Doctors doctor3 = new Doctors("Dr.Reyna");
@@ -166,7 +177,7 @@ public class MainCostumer {
         List<Doctors> doctor2200 = new ArrayList<Doctors>(Arrays.asList(doctor2,doctor2, doctor2,doctor1,doctor1, doctor2));
 
 
-
+        // make an arraylist of time
         List<ScheduleTime> time = new ArrayList<>(Arrays.asList(new ScheduleTime(1000, doctor1000),
                 new ScheduleTime(1200, doctor1100), new ScheduleTime(1400, doctor1300), new ScheduleTime(1600, doctor1600),
                 new ScheduleTime(1800, doctor1800), new ScheduleTime(2000, doctor2000), new ScheduleTime(2200, doctor2200)));
@@ -174,98 +185,150 @@ public class MainCostumer {
         System.out.println("\t\t Schedule Timetable");
         System.out.println("\t\t __________________");
         System.out.println();
-        System.out.println("Week:\t |Monday\t |Tuesday\t |Wednesday\t |Thursday\t |Friday\t |Saturday\t |Sunday");
+        System.out.println("Time:\t |Monday\t |Tuesday\t |Wednesday\t |Thursday\t |Friday\t |Saturday\t |Sunday");
 
         for(int i=0;i<time.size();i++){
             String line = "";
 
+            // for loop to get doctors and time
             for(int j=0;j<time.get(i).getDoctors().size();j++){
-                if(j != (time.get(i).getDoctors().size()-1)){line += time.get(i).getDoctors().get(j).getDoctors() + "\t |";
+                if(j != (time.get(i).getDoctors().size()-1)){
+                    line += time.get(i).getDoctors().get(j).getDoctors() + "\t |";
                 } else{line += time.get(i).getDoctors().get(j).getDoctors();}
             }
 
+            // monday close
             System.out.println(time.get(i).getScheduleTime()+"\t |Close \t |"+line);
         }
 
         customerMenu();
     }
 
-    private static void viewAppointment() throws IOException {
+
+    private static void addAppointment() {
+        // initiate the first id of the appointment
+        LineNumberReader reader = null;
+        int id = 0;
         try {
-            Scanner reader = new Scanner(new File("customer.txt"));
+            // create a new file for appointment details
+            Scanner scan = new Scanner(System.in);
+            File appointment = new File("Appointment.txt");
+            BufferedWriter appointmentBW = new BufferedWriter(new FileWriter("appointment.txt",true));
+            BufferedReader appointmentBR = new BufferedReader(new FileReader("appointment.txt"));
 
-            // if there is a data split the words by tabs
-            while (reader.hasNextLine()) {
-                String data = reader.nextLine();
-                String[] text = data.split("\t");
+            // if there is no file to be overwritten then make a new file else add a new line or create a new line.
+            if(appointment.createNewFile()){
+            }else{
+                appointmentBW.newLine();
+            }
 
-                // if the data is there get the username
-                if (data.contains(Main.getUsername())) {
-                    String password = "";
-                    // loop for sets of data available and make the password invisible ***
-                    for (int i = 0; i < text[1].length(); i++) {
-                        password += "*";
-                    }
+            reader = new LineNumberReader(new FileReader(new File("appointment.txt")));
+            // Read file till the end
+            while ((reader.readLine()) != null){
+                id = reader.getLineNumber() + 1;
+            }
 
-                    String line2, petName = "invalid";
-                    BufferedReader br = new BufferedReader(new FileReader("pet.txt"));
-                    AquaticPet Apet = null;
+            // read the pet.txt file to get information and details of the pet
+            String line = "invalid";
+            String petName = "invalid";
+            String petAllergies = "invalid";
+            String petSpecies = "invalid";
+            BufferedReader br = new BufferedReader(new FileReader("pet.txt"));
 
-                    while ((line2 = br.readLine()) != null) {
-                        if (line2.contains(Main.getUsername())) {
-                            String[] text2 = line2.split("\t");
+            // while the line is not empty and it contains the username, split each of words and
+            // according to the index assign the species and pet name
 
-                            if (text2[3].equals("Shark")) {
-                                Apet = new Shark(text2[0], Integer.parseInt(text2[1]), text2[2], text2[3]);
-                            } else if (text2[3].equals("Whale")) {
-                                Apet = new Whale(text2[0], Integer.parseInt(text2[1]), text2[2], text2[3]);
-                            } else if (text2[3].equals("Other")) {
-                                Apet = new Others(text2[0], Integer.parseInt(text2[1]), text2[2], text2[3]);
-                            }
-                        }
-                    }
+            while ((line = br.readLine()) != null) {
+                if (line.contains(Main.getUsername())){
+                    String[] text = line.split("\t");
 
-                    br.close();
-
-                    ClinicCustomer customer = new ClinicCustomer(text[0],text[1],text[2],text[4],Integer.parseInt(text[4]),text[5],Apet);
-
-                    System.out.println("\n\n\tProfile Data\n");
-                    System.out.println("User Name\t: "+customer.getUserName());
-                    System.out.println("Password\t: "+password);
-                    System.out.println("Full Name\t: "+customer.getFullName());
-                    System.out.println("Email\t\t: "+customer.getEmail());
-                    System.out.println("Phone Number\t: 0"+customer.getPhoneNumber());
-                    System.out.println("Address\t\t: "+customer.getHomeAddress());
-
-                    if(Apet.getPetSpecies().equals("Shark")){
-                        System.out.println("Pet Name\t\t: "+((Shark)Apet).getPetName()+"\n");
-                    }
-                    else if(Apet.getPetSpecies().equals("Whale")){
-                        System.out.println("Pet Name\t\t: "+((Whale)Apet).getPetName()+"\n");
-                    }
-                    else if (Apet.getPetSpecies().equals("Others")){
-                        System.out.println("Pet Name\t\t: "+((Others)Apet).getPetName()+"\n");
-                    }
+                    // assign values taken from pet.txt based on index
+                    petSpecies = text[3];
+                    petName = text[0];
+                    petAllergies = text[5];
                 }
             }
-            System.out.println("\n\n");
-            reader.close();
+
+            br.close();
+
+            //appointment details
+
+            System.out.println("Appointment id: " +id);
+            System.out.println("Enter Appointment Date (dd/mm/yyyy): ");
+            String date = scan.nextLine();
+            System.out.println("Enter Appointment Time (exp: 1430): ");
+            String time = scan.nextLine();
+            System.out.println("Username: "+Main.getUsername());
+            String name = Main.getUsername();
+            System.out.println("Pet Species: "+petSpecies);
+            String petS = petSpecies;
+            System.out.println("Pet Name: "+petName);
+            String petN = petName;
+            System.out.println("Pet Allergies: "+petAllergies);
+            String petA = petAllergies;
+            System.out.println("Appointment Reason: ");
+            String reason = scan.nextLine();
+
+            appointmentBW.write(id+"\t"+date+"\t"+time+"\t"+name+"\t"+petN+"\t"+petS+"\t"+reason);
+            appointmentBW.close();
+            System.out.println("\n Done!\n");
         }
-        catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
+        catch (IOException e) {
+            System.out.println("Error");
             e.printStackTrace();
         }
     }
 
 
-    private static void addAppointment() {
+    private static void viewCustomerProfile() {
+        // view costumer profile
+
+
+
 
     }
 
-    private static void viewProfile() {
 
+    public static void viewDetailsAppointment() {
+        try {
+            Scanner myReader = new Scanner(new File("appointment.txt"));
 
-    }
+            // if there is data, print the following
+            if(myReader.hasNextLine()){
+                System.out.println("\n\nApppointment Data\n");
+                System.out.println("ID\tDate\t\t\tTime\t\tPet Owner\t\tPet Species\t\tReason Visit \t\tApproval");
+                System.out.println("___________________________________________________________________________________________________________");
+            }
+            else{
+                System.out.println("\n\nNo appointment is found.\n");
+            }
+
+            // split the data
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                String[] text = data.split("\t");
+
+                // if there is data of the user create a new instance
+                if(data.contains(Main.getUsername())){
+
+                    AppointmentDetails appoint = new AppointmentDetails(Integer.parseInt(text[0]), text[1], text[2], text[3], text[4]);
+
+                    if(text.length == 6){
+                        System.out.println(appoint.getId()+"\t"+appoint.getDateTime()+"\t\t"+appoint.getPetOwner()+"\t\t"+appoint.getPetSpecies()+"\t\t"+appoint.getReasonOfVisit()+appoint.getAllergies()+"\t\t"+text[5]+"\t\t");
+                    }
+                    else{
+                        System.out.println(appoint.getId()+"\t"+appoint.getDateTime()+"\t\t"+appoint.getPetOwner()+"\t\t"+"\t\t"+appoint.getPetSpecies()+"\t\t"+appoint.getReasonOfVisit()+appoint.getAllergies()+"\t\t"+text[5]+"\t\t"+text[6]);
+                    }
+                }
+            }
+            System.out.println("\n\n");
+            myReader.close();
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }//end of addAppointment
 
     private static void addAquaticPet() {
         Scanner scan = new Scanner(System.in);
@@ -350,7 +413,7 @@ public class MainCostumer {
             }
 
             petBW.close();
-            System.out.println("\n Success writing to the file !\n");
+            System.out.println("\n  Done! \n");
         }
         catch (IOException e) {
             System.out.println("An error occurred.");

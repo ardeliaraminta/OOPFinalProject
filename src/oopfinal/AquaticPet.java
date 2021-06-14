@@ -11,11 +11,6 @@ public abstract class AquaticPet {
 
     }
 
-    public AquaticPet(String petOwner, String petSpecies) {
-        this.petOwner = petOwner;
-        this.petSpecies = petSpecies;
-    }
-
     // getter & setter
 
     public abstract void setPetOwner(String petOwner);

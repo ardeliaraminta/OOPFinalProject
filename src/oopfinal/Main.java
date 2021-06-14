@@ -32,11 +32,13 @@ public class Main {
         while ( !cont) {
             Scanner ent = new Scanner(System.in);
 
-            System.out.println("--------------------------------------------------------------");
-            System.out.println("\n\t[Welcome To Something Fishy: Ocean Animal Pet Center System]");
-            System.out.println("---------------------------------------------------------------");
-            System.out.println("A) Staff");
-            System.out.println("B) Customer");
+            System.out.println(" -------------------------------------------------------------");
+            System.out.println("|                                                             |");
+            System.out.println("| Welcome To Something Fishy: Ocean Animal Pet Center System  |");
+            System.out.println("|                                                             |");
+            System.out.println(" ------------------------------------------------------------- ");
+            System.out.println("|                        A) Staff                             |");
+            System.out.println("|                        B) Customer                          |");
             System.out.println("---------------------------------------------------------------");
 
             System.out.println();
@@ -49,7 +51,7 @@ public class Main {
             } else if (choice.toUpperCase().charAt(0) == 'B'){
                 MainCostumer.customer();
             } else {
-                System.out.println("Invalid Key!");
+                System.out.println("Invalid ChoiceA!");
                 cont = false;
             }
 

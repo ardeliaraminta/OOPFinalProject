@@ -2,3 +2,6 @@
 Ardelia	NewYork	Ardelia Shaula	ardelia@yahoo.com	8123	Jakarta	
 Ardelia	NewYork	Ardelia Shaula 	aramintaardelia@yahoo.com	81230	South JakartaA
 Olivia	Sour	Olivia Rodrigo	oliviarodrigo@gmail.com	12344	America	
+Niki	Moonchild	Niki Zefanya 	niki@gmail.com	8123232	South Jakarta 	
+Ardelia	NewYork	Ardelia Araminta	aramintaardelia@gmail.com	8123086	South Jakarta	
+Billie09	NewYork	Billie Eilish	billie@gmail.com	12345	USA	

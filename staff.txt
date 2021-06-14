@@ -1,4 +1,3 @@
 
-11	Ardel	aredliaksk@ayoo.com	NewYork	8123
-11	Ardelia	ardeliashaula@gmail.com	NewY9ro	8123
-11	Ardelia	aramin	dksa	909
+1109	Ardelia 	araminta@gmai.com	NewYork	81230
+1	Tate	TateMcrae@gmail.com	thatway	1234
