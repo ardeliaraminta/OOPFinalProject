@@ -11,7 +11,6 @@ public class AppointmentDetails implements PetDetails {
     private String allergies;
 
 
-    public AppointmentDetails(){}
     public AppointmentDetails(int i, String own, String spec, String reason, String date){
         id = i;
         petOwner = own;
