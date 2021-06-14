@@ -22,26 +22,6 @@ public class AppointmentDetails implements PetDetails {
     }
 
 //setters
-    public void setId(int i){
-        id = i;
-    }
-
-    public void setPetOwner(String own){
-        petOwner = own;
-    }
-    public void setPetSpecies(String spec){
-        petSpecies = spec;
-
-    }
-    public void setReasonOfVisit(String reason){
-        reasonOfVisit = reason;
-
-    }
-
-    public void setDateTime(String date){
-        dateTime = date;
-    }
-
     public int getId(){
         return id;
     }

@@ -1,3 +1,2 @@
 
-1109	Ardelia 	araminta@gmai.com	NewYork	81230
-1	Tate	TateMcrae@gmail.com	thatway	1234
+11	Ardelia	ardelia@gmail.com	NewYork	123	Part-Time

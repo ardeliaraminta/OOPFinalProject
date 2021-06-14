@@ -6,7 +6,7 @@ public class ClinicStaff implements StaffDetails {
     private String StaffPassword;
     private int StaffID;
     private int StaffPhoneNumber;
-    private boolean isFullTime;
+    private String status;
 
     public ClinicStaff() {
     }
@@ -63,36 +63,13 @@ public class ClinicStaff implements StaffDetails {
     }
 
     @Override
-    public void status() {
-        System.out.println(" I'm working for a whole day ! ");
+    public void setStaffStatus(String status) {
+        this.status = status;
     }
 
     @Override
-    public void setFullTime(boolean fullTime) {
-        isFullTime = fullTime;
-    }
-
-    @Override
-    public boolean isFullTime() {
-        return isFullTime;
-    }
-
-    @Override
-    public String staffStatus() {
-        if (isFullTime()) {
-            return "Full-Time Staff";
-        } else {
-            return "Part-Time Staff";
-        }
-    }
-
-    @Override
-    public void checkStatus() {
-        if (isFullTime()) {
-            status();
-        } else {
-            System.out.println("Only part-timing");
-
-        }
+    public String getStaffStatus() {
+        return status;
     }
 }
+

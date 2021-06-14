@@ -9,15 +9,6 @@ public class Others extends AquaticPet implements PetDetails  {
 
     };
 
-    // construct Others
-    public Others(String petName, int petAge, String pOwner, String pSpec ){
-        super.petOwner = pOwner;
-        super.petSpecies = pSpec;
-        this.petName = petName;
-        this.petAge = petAge;
-
-    }
-
     public void setPetName(String petName){
         this.petName = petName;
     }

@@ -58,10 +58,10 @@ class MainStaff {
             System.out.println("Enter your phone number: ");
             st.setStaffPhoneNumber(Integer.parseInt(scan.nextLine()));
             System.out.println("Status: Full-Time / Part-Time");
-            st.setFullTime(true);
+            st.setStaffStatus(scan.nextLine());
 
             // write in the txt
-            staffBW.write(st.getStaffID() + "\t" + st.getStaffName() + "\t" + st.getStaffEmail() + "\t" + st.getStaffPassword() + "\t" + st.getStaffPhoneNumber());
+            staffBW.write(st.getStaffID() + "\t" + st.getStaffName() + "\t" + st.getStaffEmail() + "\t" + st.getStaffPassword() + "\t" + st.getStaffPhoneNumber()+ "\t" + st.getStaffStatus());
             logbw.write(st.getStaffID() + "\t" + st.getStaffPassword());
             staffBW.close();
             logbw.close();
@@ -167,6 +167,7 @@ class MainStaff {
                     System.out.println("Name\t: " + staff.getStaffName());
                     System.out.println("Email\t\t: " + staff.getStaffEmail());
                     System.out.println("Phone Number\t: 0" + staff.getStaffPhoneNumber());
+                    System.out.println("Password\t: " + pwd);
                     System.out.println("Password\t: " + pwd);
                 }
             }

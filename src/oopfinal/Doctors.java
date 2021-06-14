@@ -1,9 +1,8 @@
 package oopfinal;
 
 public class Doctors {
-        String doctor;
+        public String doctor;
 
-        public Doctors(){};
 
         public Doctors(String docs){
             doctor = docs;
