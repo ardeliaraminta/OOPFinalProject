@@ -1,5 +1,2 @@
 
-1109	NewYork
-1	thatway
-14	NewYork
 11	NewYork

@@ -1,10 +1,10 @@
 package oopfinal;
 
 public abstract class AquaticPet {
-    public String behaviour;
-    public String allergies;
-    public String petOwner;
-    public String petSpecies;
+    protected String behaviour;
+    protected String allergies;
+    String petOwner;
+    String petSpecies;
 
     // constructor
     public AquaticPet() {

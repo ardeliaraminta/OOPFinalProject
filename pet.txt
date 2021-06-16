@@ -1,4 +1,2 @@
 
-Lola	3	Ardelia	Tiger Shark	Soft	Salmon
-Cherry	3	Billie09	BlueWhale	null	null
-Zelda	6	Billie09	Tiger	Soft	Meat
+Lola	2	Monique	TigerShark	Soft	Onions

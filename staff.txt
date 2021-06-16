@@ -1,2 +1,1 @@
-
-11	Ardelia	ardelia@gmail.com	NewYork	123	Part-Time
+11	Ardelia	ardelia@gmail.com	NewYork	8123829	Full-Time

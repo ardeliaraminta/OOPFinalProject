@@ -49,12 +49,13 @@ public class Whale extends AquaticPet implements PetDetails{
 
     @Override
     public void setBehaviour(String behaviour) {
+        this.behaviour = behaviour;
 
     }
 
     @Override
     public String getBehaviour() {
-        return null;
+        return behaviour;
     }
 
     @Override
@@ -64,7 +65,7 @@ public class Whale extends AquaticPet implements PetDetails{
 
     @Override
     public String getAllergies() {
-        return null;
+        return allergies;
     }
 
 }

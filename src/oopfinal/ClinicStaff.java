@@ -11,8 +11,6 @@ public class ClinicStaff implements StaffDetails {
     public ClinicStaff() {
     }
 
-    ;
-
     public ClinicStaff(int id, String name, String mail, String pass, int phone) {
         StaffID = id;
         StaffName = name;

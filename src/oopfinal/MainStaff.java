@@ -8,7 +8,9 @@ class MainStaff {
     public static void staff() {
         // staff main menu ( register or login )
         input = new Scanner(System.in);
-        System.out.println(" Staff Login");
+        System.out.println(" ------------------------------------");
+        System.out.println("\n\t\t\tStaff");
+        System.out.println(" ------------------------------------");
         System.out.println("1)Register");
         System.out.println("2)Login");
 
@@ -74,12 +76,14 @@ class MainStaff {
     }
 
     private static void staffLogin() {
-        String password, line, username;
+        String password, line;
         String id;
 
-        System.out.println("\t------------[ LOGIN ]-------------");
+        System.out.println("\t__________________________________");
+        System.out.println("\t|          | LOGIN |              |");
+        System.out.println("\t__________________________________");
         System.out.println();
-        System.out.println("\tEnter your ID: ");
+        System.out.println("\tEnter your Staff ID: ");
         id = input.next();
         System.out.println("\tEnter your Password: ");
         password = input.next();
@@ -118,8 +122,8 @@ class MainStaff {
     // option for the staff menu
     public static void staffMenu() {
 
-        System.out.println(" Menu ");
-        System.out.println("--------------------");
+        System.out.println("              Menu              ");
+        System.out.println("--------------------------------");
         System.out.println(" 1) View User Profile");
         System.out.println(" 2) Cancel or Approve Appointment");
 
@@ -128,18 +132,51 @@ class MainStaff {
         int options = input.nextInt();
 
         switch (options) {
-            case 1:
-                viewStaffProfile(); // to see the user profile
-                break;
-            case 2:
-                editAppointment(); // approve or decline
-                break;
-            default:
+            case 1 -> viewStaffProfile(); // to see the user profile
+            case 2 -> editAppointment(); // approve or decline incoming appointment from the customer
+            default -> {
                 System.out.println("Invalid Key!");
                 MainStaff.staff();
+            }
         }
+    }
 
+    private static void editAppointment() {
+        try {
+            // scanner to read the file
+            Scanner appoint = new Scanner(new File("appointment.txt"));
+            StringBuilder buffer = new StringBuilder();
+            Scanner scan = new Scanner(System.in);
+            int count = 0;
 
+            // if there is data read per lines and split by tabs
+            while (appoint.hasNextLine()) {
+                String data = appoint.nextLine();
+                String[] text = data.split("\t");
+
+                // if the text file consist of 7 words it allows the staff to decline or accept the appointment
+                // to check if the data required is available
+                if (text.length == 7) {
+                    System.out.println(data);
+                    System.out.println("\nApprove/Reject: ");
+                    String status = scan.next();
+                    buffer.append(data).append("\t").append(status);
+                } else {
+                    buffer.append(data);
+                }
+                count++;
+                if (count > 0) {
+                    buffer.append("\n");
+                }
+            }
+            FileOutputStream output = new FileOutputStream("appointment.txt");
+            output.write(buffer.toString().getBytes());
+            output.close();
+            appoint.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 
     // to see the details of the staff
@@ -155,19 +192,18 @@ class MainStaff {
 
                 // if there is data containing the staff id, get the password and encrypt it ***** ( confidential )
                 if (data.contains(Main.getStaffID())) {
-                    String pwd = "";
+                    StringBuilder pwd = new StringBuilder();
                     for (int i = 0; i < text[1].length(); i++) {
-                        pwd += "*";
+                        pwd.append("*");
                     }
 
                     ClinicStaff staff = new ClinicStaff(Integer.parseInt(text[0]), text[1], text[2], text[3], Integer.parseInt(text[4]));
-
+                    // print the staff details
                     System.out.println("\n\n\tProfile Data\n");
                     System.out.println("ID\t: " + staff.getStaffID());
                     System.out.println("Name\t: " + staff.getStaffName());
                     System.out.println("Email\t\t: " + staff.getStaffEmail());
                     System.out.println("Phone Number\t: 0" + staff.getStaffPhoneNumber());
-                    System.out.println("Password\t: " + pwd);
                     System.out.println("Password\t: " + pwd);
                 }
             }
@@ -177,43 +213,7 @@ class MainStaff {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-    }
 
-
-    private static void editAppointment() {
-        try {
-            Scanner appoint = new Scanner(new File("appointment.txt"));
-            StringBuffer buffer = new StringBuffer();
-            Scanner scan = new Scanner(System.in);
-            int count = 0;
-
-            while (appoint.hasNextLine()) {
-                String data = appoint.nextLine();
-                String[] text = data.split("\t");
-
-                if (text.length == 6) {
-                    System.out.println(data);
-                    System.out.println("\nApprove/Reject: ");
-                    String status = scan.next();
-                    buffer.append(data + "\t" + status);
-                } else {
-                    buffer.append(data);
-                }
-
-                count++;
-                if (count > 0) {
-                    buffer.append("\n");
-                }
-            }
-
-            FileOutputStream output = new FileOutputStream("appointment.txt");
-            output.write(buffer.toString().getBytes());
-            output.close();
-            appoint.close();
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
     }
 }
 
