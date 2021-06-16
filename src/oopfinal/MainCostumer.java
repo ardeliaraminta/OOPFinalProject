@@ -354,7 +354,7 @@ public class MainCostumer {
                     whale.setPetAge(Integer.parseInt(scan.nextLine()));
                     whale.setPetOwner(Main.getUsername());
                     System.out.println("Enter your Pet species: ");
-                    whale.setPetSpecies(scan.nextLine());
+                    whale.setPetSpecies(scan.nextLine() + " Whale");
                     System.out.println("Pet Behaviour; Aggressive/ Soft ");
                     whale.setBehaviour(scan.nextLine());
                     System.out.println("Any particular allergies: ");
@@ -369,7 +369,7 @@ public class MainCostumer {
                     shark.setPetAge(Integer.parseInt(scan.nextLine()));
                     shark.setPetOwner(Main.getUsername());
                     System.out.println("Enter your Pet species: ");
-                    shark.setPetSpecies(scan.nextLine());
+                    shark.setPetSpecies(scan.nextLine() + " Shark");
                     System.out.println("Pet Behaviour; Aggressive/ Soft ");
                     shark.setBehaviour(scan.nextLine());
                     System.out.println("Any particular allergies: ");
