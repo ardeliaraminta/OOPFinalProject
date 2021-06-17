@@ -15,7 +15,7 @@ A program that aim to create an aquatic animal center management system for staf
 If you would like to use this application as a user, the easiest way is to clone the repository. 
 User Manual [Java Final Project : Something Fishy]().
 
-Pre-requisites:
+##### Pre-requisites:
 
 IntelliJ, or any IDE of your preference to edit Java code.
 Cloning the repo https://github.com/ardeliaraminta/OOPFinalProject
