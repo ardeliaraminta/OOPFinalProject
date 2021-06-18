@@ -1,6 +1,7 @@
 # Final Project Object Oriented Programming : Aquatic Pet Clinic System Management 
 
-Something Fishy: Ocean Animal Pet Center -> A CLI based program that aim to create an aquatic animal center management system for staff and customers that allows:
+## Something Fishy: Ocean Animal Pet Center -> 
+A CLI based program that aim to create an aquatic animal center management system for staff and customers that allows:
 
 - Register and Login of Staff and Customer
 -	Approve and Decline Appointment (Staff) 
