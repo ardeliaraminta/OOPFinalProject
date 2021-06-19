@@ -3,8 +3,8 @@ package oopfinal;
 public abstract class AquaticPet {
     protected String behaviour;
     protected String allergies;
-    String petOwner;
-    String petSpecies;
+    public String petOwner;
+    public String petSpecies;
 
     // constructor
     public AquaticPet() {

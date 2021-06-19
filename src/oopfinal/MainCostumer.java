@@ -50,12 +50,14 @@ public class MainCostumer {
             BufferedReader br = new BufferedReader(new FileReader("custLog.txt"));
             boolean validation = false;
 
-            // while loop, if the line is not empty (txt)  and contains username and password
+            // while loop, if the line is not empty (txt)  and if  contains username and password
             // it checks with the validation, and proceed to the customer menu
 
             while ((line = br.readLine()) != null) {
                 if (line.contains(username) && line.contains(password)) {
+                    // if it matched for both password and username
                     validation = true;
+                    // set data for that specific user and proceed to the menu
                     Main.setUserName(username);
                     customerMenu();
                 }
@@ -83,6 +85,10 @@ public class MainCostumer {
             Scanner sc = new Scanner(System.in);
             File cust = new File("customer.txt");
             File custLog = new File("custLog.txt");
+
+            // initiate file writer for different text file, in this case
+            // custBW is to store the details of the customer that register
+            // logBW is to store username and password of customer ( for login verification)
             BufferedWriter custBW = new BufferedWriter(new FileWriter("customer.txt", true));
             BufferedWriter logBW = new BufferedWriter(new FileWriter("custLog.txt", true));
             ClinicCustomer customer = new ClinicCustomer();
@@ -116,7 +122,9 @@ public class MainCostumer {
             customer.setHomeAddress(sc.nextLine());
 
             // write in text file the above entries
+            // customer.txt
             custBW.write(customer.getUserName() + "\t" + customer.getPassword() + "\t" + customer.getFullName() + "\t" + customer.getEmail() + "\t" + customer.getPhoneNumber() + "\t" + customer.getHomeAddress() + "\t");
+            // custLog.txt
             logBW.write(customer.getUserName() + "\t" + customer.getPassword());
 
             custBW.close();
@@ -166,7 +174,7 @@ public class MainCostumer {
         // make an arraylist of doctors available at certain time for checkup schedule
         List<Doctors> doctor1000 = new ArrayList<>(Arrays.asList(doctor3, doctor2, doctor2, doctor1, doctor1, doctor3));
         List<Doctors> doctor1100 = new ArrayList<>(Arrays.asList(doctor1, doctor1, doctor2, doctor2, doctor1, doctor1));
-        List<Doctors> doctor1300 = new ArrayList<>(Arrays.asList(doctor3, doctor2, doctor2, doctor1, doctor1, doctor2));
+        List<Doctors> doctor1300 = new ArrayList<>(Arrays.asList(doctor3, doctor3, doctor2, doctor1, doctor1, doctor2));
         List<Doctors> doctor1600 = new ArrayList<>(Arrays.asList(doctor2, doctor2, doctor2, doctor3, doctor1, doctor2));
         List<Doctors> doctor1800 = new ArrayList<>(Arrays.asList(doctor2, doctor3, doctor2, doctor1, doctor1, doctor2));
         List<Doctors> doctor2000 = new ArrayList<>(Arrays.asList(doctor3, doctor2, doctor2, doctor3, doctor1, doctor2));
@@ -267,7 +275,7 @@ public class MainCostumer {
             System.out.println("Appointment Reason: ");
             String reason = scan.nextLine();
 
-            appointmentBW.write(id + "\t" + date + "\t" + time + "\t" + name + "\t" + petN + "\t" + petS + "\t" + reason);
+            appointmentBW.write(id + "\t" + date + "\t" + time + "\t" + name + "\t" + petN + "\t" + petS + "\t" + petA + "\t" + reason);
             appointmentBW.close();
             System.out.println("\n Done!\n");
         } catch (IOException e) {
@@ -354,7 +362,7 @@ public class MainCostumer {
                     whale.setPetAge(Integer.parseInt(scan.nextLine()));
                     whale.setPetOwner(Main.getUsername());
                     System.out.println("Enter your Pet species: ");
-                    whale.setPetSpecies(scan.nextLine() + " Whale");
+                    whale.setPetSpecies(scan.nextLine() + "Whale");
                     System.out.println("Pet Behaviour; Aggressive/ Soft ");
                     whale.setBehaviour(scan.nextLine());
                     System.out.println("Any particular allergies: ");
@@ -369,7 +377,7 @@ public class MainCostumer {
                     shark.setPetAge(Integer.parseInt(scan.nextLine()));
                     shark.setPetOwner(Main.getUsername());
                     System.out.println("Enter your Pet species: ");
-                    shark.setPetSpecies(scan.nextLine() + " Shark");
+                    shark.setPetSpecies(scan.nextLine() + "Shark");
                     System.out.println("Pet Behaviour; Aggressive/ Soft ");
                     shark.setBehaviour(scan.nextLine());
                     System.out.println("Any particular allergies: ");

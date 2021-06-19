@@ -156,6 +156,7 @@ class MainStaff {
 
                 // if the text file consist of 7 words it allows the staff to decline or accept the appointment
                 // to check if the data required is available
+
                 if (text.length == 7) {
                     System.out.println(data);
                     System.out.println("\nApprove/Reject: ");
@@ -169,6 +170,7 @@ class MainStaff {
                     buffer.append("\n");
                 }
             }
+
             FileOutputStream output = new FileOutputStream("appointment.txt");
             output.write(buffer.toString().getBytes());
             output.close();

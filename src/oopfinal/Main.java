@@ -51,9 +51,11 @@ public class Main {
             } else if (choice.toUpperCase().charAt(0) == 'B'){
                 MainCostumer.customer();
             } else {
-                System.out.println("Invalid ChoiceA!");
+                System.out.println("Invalid Choice!");
                 cont = false;
             }
+
+            new Main();
 
 
         }
