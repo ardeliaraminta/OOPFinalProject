@@ -270,8 +270,8 @@ public class MainCostumer {
             String petS = petSpecies;
             System.out.println("Pet Name: " + petName);
             String petN = petName;
-            System.out.println("Pet Allergies: " + petAllergies);
             String petA = petAllergies;
+            System.out.println("Pet Allergies: " + petAllergies);
             System.out.println("Appointment Reason: ");
             String reason = scan.nextLine();
 
@@ -308,11 +308,11 @@ public class MainCostumer {
 
                     AppointmentDetails appoint = new AppointmentDetails(Integer.parseInt(text[0]), text[1], text[2], text[3], text[4]);
 
-                    // if the words length is 7, get data based on the index
-                    if (text.length == 7) {
-                        System.out.println(appoint.getId() + "\t" + appoint.getDateTime() + "\t\t" + appoint.getPetOwner() + "\t\t" + appoint.getPetSpecies() + "\t\t" + appoint.getReasonOfVisit()+ "\t\t" + text[5] + "\t\t");
+                    // if the words length is 8, get data based on the index
+                    if (text.length == 8) {
+                        System.out.println(appoint.getId() + "\t" + appoint.getDateTime() + "\t\t" + appoint.getPetOwner() + "\t\t" + appoint.getPetSpecies() + "\t\t" + appoint.getReasonOfVisit()+ "\t\t" + text[5] + "\t\t" + text[7] );
                     } else {
-                        System.out.println(appoint.getId() + "\t" + appoint.getDateTime() + "\t\t" + appoint.getPetOwner() + "\t\t" + "\t\t" + appoint.getPetSpecies() + "\t\t" + appoint.getReasonOfVisit()  + "\t\t" + text[5] + "\t\t" + text[6] +"\t\t" + text[7]);
+                        System.out.println(appoint.getId() + "\t" + appoint.getDateTime() + "\t\t" + appoint.getPetOwner() + "\t\t" + "\t\t" + appoint.getPetSpecies() + "\t\t" + appoint.getReasonOfVisit()  + "\t\t" + text[5] + "\t\t" + text[6] +"\t\t" + text[7] + "\t\t" + text[8]);
                     }
                 }
             }
