@@ -180,7 +180,6 @@ public class MainCostumer {
         List<Doctors> doctor2000 = new ArrayList<>(Arrays.asList(doctor3, doctor2, doctor2, doctor3, doctor1, doctor2));
         List<Doctors> doctor2200 = new ArrayList<>(Arrays.asList(doctor2, doctor2, doctor2, doctor1, doctor1, doctor2));
 
-
         // make an arraylist of time
         List<ScheduleTime> time = new ArrayList<>(Arrays.asList(new ScheduleTime(1000, doctor1000),
                 new ScheduleTime(1200, doctor1100), new ScheduleTime(1400, doctor1300), new ScheduleTime(1600, doctor1600),
@@ -310,6 +309,8 @@ public class MainCostumer {
 
                     // if the words length is 8, get data based on the index
                     if (text.length == 8) {
+
+                        // it show the one without the approval or rejection
                         System.out.println(appoint.getId() + "\t" + appoint.getDateTime() + "\t\t" + appoint.getPetOwner() + "\t\t" + appoint.getPetSpecies() + "\t\t" + appoint.getReasonOfVisit()+ "\t\t" + text[5] + "\t\t" + text[7] );
                     } else {
                         System.out.println(appoint.getId() + "\t" + appoint.getDateTime() + "\t\t" + appoint.getPetOwner() + "\t\t" + "\t\t" + appoint.getPetSpecies() + "\t\t" + appoint.getReasonOfVisit()  + "\t\t" + text[5] + "\t\t" + text[6] +"\t\t" + text[7] + "\t\t" + text[8]);

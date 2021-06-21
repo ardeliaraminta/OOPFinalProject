@@ -1,4 +1,3 @@
-
-Lola	2	Monique	TigerShark	Soft	Onions
-Lulu	2	MadisonBeer	TigerShark	Soft	null
 Moana	10	Olivia	TigerShark	Soft	Cheese
+Lulu	10	Angeline	TigerSharkShark	Soft	Onion
+Lulu	20	Angeline	TigerShark	Soft	Peanut

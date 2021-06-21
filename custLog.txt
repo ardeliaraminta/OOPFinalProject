@@ -4,3 +4,6 @@ Monique	unique
 MadisonBeer	reckless
 Olivia	sour
 Olivia	mycat
+Ardelia	NewYork
+Angeline	takoyaki
+Angeline	NewYork

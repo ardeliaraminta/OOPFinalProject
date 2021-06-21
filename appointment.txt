@@ -1,2 +1,8 @@
 
 0	09/07/2021	1000	Olivia	Moana	TigerShark	Cheese	Cough	Approve
+
+3	25/06/2021	1600	Vania	Lulu	TigerSharkShark	Cheese	Allergies	Approve
+
+5	23/06/2021	1000	Angeline	Stitch	TigerSharkShark	cheese	Fever	Approve
+
+7	25/06/2021	1600	Angeline	Lulu	TigerShark	Peanut	Allergic 	Approve

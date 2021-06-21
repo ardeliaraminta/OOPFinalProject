@@ -2,4 +2,8 @@
 Monique	unique	Monique Senjaya	monique.senjaya@gmail.com	362367	Jakarta 	
 MadisonBeer	reckless	Madison Beer 	madison@gmailc.com	12445	New York	
 Olivia	sour	Olivia Rodrigo	olivia.sour@gmail.com	1343=	Malibu
-Olivia	mycat	Olivia Brien	oliviab@gmail.com	82731	California	
+Olivia	mycat	Olivia Brien	oliviab@gmail.com	82731	California
+Angeline	takoyaki	Angeline Karen 	angeline@gmail.com	239289	Jakarta	
+Angeline	NewYork	Angeline Karen	angeline@gmail.com	281928	Jakarta	
+Angeline	takoyaki	Angeline Karen	angeline@gmail.com	9128	Jakarta	
+Angeline	NewYork	Angeline Karen	angeline@gmail.com	8128	Jakarta	
