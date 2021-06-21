@@ -13,7 +13,7 @@ A CLI based program that aim to create an aquatic animal center management syste
 ## Installation 
 
 If you would like to use this application as a user, the easiest way is to clone the repository. 
-User Manual [Java Final Project : Something Fishy]().
+User Manual [Java Final Project : Something Fishy](https://www.youtube.com/watch?v=lGiCVMoqAcQ).
 
 ##### Pre-requisites:
 
